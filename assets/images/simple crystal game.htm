@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
+<!-- saved from url=(0054)file:///Users/charlesbessjr/git/unit-4-game/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
   <title>simple crystal game</title>
 
   <style type="text/css">
 
     .crystal-image {
-      width: 50px;
-      height: 50px;
+      width: 300px;
+      height: 300px;
     }
   </style>
 
 </head>
 <body>
 
+  <h1>Number to Guess: <span id="number-to-guess">43</span></h1>
 
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
-  </div>
-
-  <h1>Random Number: <span id="number-to-guess"></span></h1>
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
-
+  <img class="crystal-image" src="./simple crystal game_files/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" data-crystalvalue="1"><img class="crystal-image" src="./simple crystal game_files/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" data-crystalvalue="7"><img class="crystal-image" src="./simple crystal game_files/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" data-crystalvalue="3"><img class="crystal-image" src="./simple crystal game_files/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" data-crystalvalue="6"></div>
 
   <!-- JAVASCRIPT  -->
   <!-- ========================================= -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./simple crystal game_files/jquery.min.js"></script>
 
   <script type="text/javascript">
 
@@ -53,7 +49,7 @@
     arrNum2=randomCryNumber(),
     arrNum3=randomCryNumber(),
     arrNum4=randomCryNumber()
-
+    
   ];
 
   // Next we create a for loop to create crystals for every numberOption.
@@ -132,5 +128,6 @@ function randomCryNumber() {
 
 
   </script>
-</body>
-</html>
+
+
+</body></html>
