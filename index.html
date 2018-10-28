@@ -20,9 +20,9 @@
   </div>
 
   <h1>Random Number: <span id="number-to-guess"></span></h1>
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
-
+  <h1>Current Total: <span id="current-total"></span></h1>
+  <h1>Number of Wins: <span id="current-win"></span></h1>
+  <h1>Number of Loses: <span id="current-lose"></span></h1>
 
   <!-- JAVASCRIPT  -->
   <!-- ========================================= -->
@@ -31,10 +31,13 @@
   <script type="text/javascript">
 
   var randomNumber = randomNumber();
+  var currentTotal = 0;
+  var currentWin = 0;
+  var currentLose = 0;
+
 
   $("#number-to-guess").text(randomNumber);
 
-  var counter = 0;
 
   // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
@@ -67,7 +70,11 @@
     imageCrystal.addClass("crystal-image");
 
     // Each imageCrystal will be given a src link to the crystal image
-    imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+    // imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+    imageCrystal.attr("src", "assets/images/jewel_1.jpeg");
+    // imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+
+
 
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
@@ -83,23 +90,40 @@
     // Determining the crystal's value requires us to extract the value from the data attribute.
     // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
     // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the currentTotal
 
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
-    // We then add the crystalValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
-    counter += crystalValue;
+    // We then add the crystalValue to the user's "currentTotal" which is a global variable.
+    // Every click, from every crystal adds to the global currentTotal.
+    currentTotal += crystalValue;
 
     // All of the same game win-lose logic applies. So the rest remains unchanged.
-    alert("New score: " + counter);
+    // alert("New score: " + currentTotal);
+    $("#current-total").text(currentTotal)
 
-    if (counter === randomNumber) {
+
+    if (currentTotal === randomNumber) {
       alert("You win!");
+      currentWin++;
+      $("#current-win").text(currentWin)
+      currentTotal=0;
+      $("#current-total").text(currentTotal)
+      randomNumber = 0;
+      randomNumber=randomNumber();
+      $("#number-to-guess").text(randomNumber);
+
     }
 
-    else if (counter >= randomNumber) {
+    else if (currentTotal >= randomNumber) {
       alert("You lose!!");
+      currentLose++;
+      $("#current-lose").text(currentLose)
+      currentTotal=0;
+      $("#current-total").text(currentTotal)
+      randomNumber = randomNumber();
+      $("#number-to-guess").text(randomNumber);
+
     }
 
   });
@@ -128,7 +152,12 @@ function randomCryNumber() {
     }
 
 
+function reset() {
 
+    currentTotal=0;
+    $("#current-total").text(currentTotal)    
+
+}
 
 
   </script>
