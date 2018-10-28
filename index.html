@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>simple crystal game</title>
+  <title>unit-4-game</title>
 
   <style type="text/css">
 
@@ -14,15 +14,19 @@
 </head>
 <body>
 
+    <div>
+        <h1>Crystal Collector!!</h1>
+    </div>
+
 
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
   </div>
 
-  <h1>Random Number: <span id="number-to-guess"></span></h1>
-  <h1>Current Total: <span id="current-total"></span></h1>
-  <h1>Number of Wins: <span id="current-win"></span></h1>
-  <h1>Number of Loses: <span id="current-lose"></span></h1>
+  <h3>Random Number: <span id="number-to-guess"></span></h3>
+  <h3>Current Total: <span id="current-total"></span></h3>
+  <h3>Number of Wins: <span id="current-win"></span></h3>
+  <h3>Number of Loses: <span id="current-lose"></span></h3>
 
   <!-- JAVASCRIPT  -->
   <!-- ========================================= -->
@@ -30,7 +34,7 @@
 
   <script type="text/javascript">
 
-  var randomNumber = randomNumber();
+  var randomNumber = randomNumbergen();
   var currentTotal = 0;
   var currentWin = 0;
   var currentLose = 0;
@@ -107,11 +111,8 @@
       alert("You win!");
       currentWin++;
       $("#current-win").text(currentWin)
-      currentTotal=0;
-      $("#current-total").text(currentTotal)
-      randomNumber = 0;
-      randomNumber=randomNumber();
-      $("#number-to-guess").text(randomNumber);
+    
+      reset();
 
     }
 
@@ -119,10 +120,8 @@
       alert("You lose!!");
       currentLose++;
       $("#current-lose").text(currentLose)
-      currentTotal=0;
-      $("#current-total").text(currentTotal)
-      randomNumber = randomNumber();
-      $("#number-to-guess").text(randomNumber);
+
+        reset();
 
     }
 
@@ -132,7 +131,7 @@
 
 // Functions for random number generation
 
-function randomNumber() {
+function randomNumbergen() {
 
     var ranNum1 = 0;
     ranNum1 = Math.floor((Math.random() * 102) + 19);
@@ -156,6 +155,40 @@ function reset() {
 
     currentTotal=0;
     $("#current-total").text(currentTotal)    
+
+      $("#number-to-guess").text("");
+      randomNumber = 0;
+      randomNumber=randomNumbergen();
+      $("#number-to-guess").text(randomNumber);
+
+    // imageCrystal.attr("data-crystalvalue", 0);
+
+
+    arrNum1=0;
+    arrNum2=0;
+    arrNum3=0;
+    arrNum4=0;
+
+    numberOptions = [
+
+
+    arrNum1=randomCryNumber(),
+    arrNum2=randomCryNumber(),
+    arrNum3=randomCryNumber(),
+    arrNum4=randomCryNumber()
+
+    ];
+
+    // for (var i = 0; i < numberOptions.length; i++) {
+
+    //     var imageCrystal = $("<img>");
+
+    //     imageCrystal.addClass("crystal-image");
+    //     imageCrystal.attr("src", "assets/images/jewel_1.jpeg");
+    //     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+    //     $("#crystals").append(imageCrystal);
+
+    // }
 
 }
 
