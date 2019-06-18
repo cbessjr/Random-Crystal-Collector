@@ -1,4 +1,4 @@
-# unit-4-game
+# Random-Crystal-Collector
 jQuery Assignment
 
 The unit-4-game, also known as the Random Crystal Collector.
