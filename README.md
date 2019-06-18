@@ -12,7 +12,7 @@ When the player clicks on a crystal, it will add a specific amount of points to 
 
 
 The game will hide this amount until the player clicks a crystal.
-When they do click one, update the player's score counter.
+When they click a crystal it will update the player's score counter.
 
 
 The player wins if their total score matches the random number from the beginning of the game.
